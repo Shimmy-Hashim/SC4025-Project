@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Trustworthiness Score · Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Demo bar: lets a tester start from any seller offer (one per persona flow). Not part of the feature. -->
+  <div class="demo-bar" role="region" aria-label="Prototype demo controls">
+    <span>Prototype demo · start from an offer:</span>
+    <div class="demo-buttons" id="demoButtons"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#" id="homeLink">
+      <span class="wordmark-name">marketplace</span>
+      <span class="wordmark-sub">concept prototype</span>
+    </a>
+    <div class="search" role="search">
+      <input type="search" placeholder="Search for products" aria-label="Search for products">
+    </div>
+    <div class="account"><span class="small">Hello, sign in</span><strong>Account &amp; Lists</strong></div>
+    <div class="cart-link" id="cartCount">Cart</div>
+  </header>
+
+  <main id="productView">
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
+    <div class="product">
+      <div class="gallery">
+        <img id="productImage" alt="Product image" hidden>
+        <div class="image-placeholder" id="imagePlaceholder">Product image<br>(add assets/product.jpg)</div>
+      </div>
+
+      <section class="details-head" aria-label="Product title and rating">
+        <h1 id="title"></h1>
+        <a class="link" href="#" id="store"></a>
+        <div class="stars-row" id="starsRow"></div>
+      </section>
+
+      <section class="details-body" aria-label="Product details">
+        <hr>
+        <div class="price-big" id="priceBig"></div>
+        <div class="muted small">Inclusive of all taxes</div>
+        <h2 class="about">About this item</h2>
+        <ul id="bullets"></ul>
+      </section>
+
+      <aside class="buy-box" aria-label="Buy box">
+        <div class="price-box" id="priceBox"></div>
+        <div class="price-warning" id="priceWarning" hidden></div>
+        <div id="delivery"></div>
+        <div class="in-stock">In stock</div>
+        <div class="small">Sold by <a class="link" href="#" id="sellerName"></a></div>
+
+        <section class="trust-card" aria-labelledby="trustHeading">
+          <div class="trust-head">
+            <span class="icon" data-icon="shield"></span>
+            <h3 id="trustHeading">Authenticity check</h3>
+          </div>
+          <button class="band-button" id="bandChip" aria-haspopup="dialog"></button>
+          <p class="reason" id="reason" hidden></p>
+          <ul class="factor-list" id="inlineFactors"></ul>
+          <button class="text-button" id="whyButton" aria-haspopup="dialog">Why this score ›</button>
+        </section>
+
+        <button class="text-button" id="compareLink" aria-haspopup="dialog" hidden></button>
+        <button class="btn btn-cart" id="addToCart">Add to Cart</button>
+        <button class="btn btn-buy" id="buyNow">Buy Now</button>
+        <div class="small link-like" id="otherSellers"></div>
+      </aside>
+    </div>
+  </main>
+
+  <main id="cartView" hidden>
+    <section class="cart-card" aria-labelledby="cartHeading">
+      <h1 id="cartHeading" class="added"><span class="icon" data-icon="pass"></span> Added to Cart</h1>
+      <div class="cart-row">
+        <img class="thumb" id="cartImage" alt="">
+        <div>
+          <div id="cartTitle"></div>
+          <div class="cart-seller"><span class="small muted" id="cartSeller"></span> <span id="cartBand"></span></div>
+          <div class="subtotal" id="cartSubtotal"></div>
+        </div>
+      </div>
+      <div class="cart-actions">
+        <button class="btn btn-cart inline">Proceed to Buy</button>
+        <button class="text-button" id="backToProduct">‹ Back to product</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Side panels -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="whyDrawer" role="dialog" aria-modal="true" aria-labelledby="whyTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="whyTitle">Why this score</h2>
+      <button class="text-button" data-close>✕ Close</button>
+    </div>
+    <p class="muted small" id="whySubtitle"></p>
+    <div class="score-row" id="whyScore"></div>
+    <ul class="factor-cards" id="whyFactors"></ul>
+    <button class="btn btn-cart" id="whyCompare" hidden></button>
+    <button class="text-button" id="howLink">How is this score calculated? ›</button>
+  </aside>
+
+  <aside class="drawer" id="compareDrawer" role="dialog" aria-modal="true" aria-labelledby="compareTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="compareTitle">Same product from other sellers</h2>
+      <button class="text-button" data-close>‹ Back</button>
+    </div>
+    <p class="muted small">Sorted by authenticity check, then price.</p>
+    <div id="compareList"></div>
+  </aside>
+
+  <aside class="drawer" id="howDrawer" role="dialog" aria-modal="true" aria-labelledby="howTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="howTitle">How the authenticity check works</h2>
+      <button class="text-button" data-close>✕ Close</button>
+    </div>
+    <p>The check combines five factors about each seller's offer into a band. It is guidance to help you decide, not a guarantee.</p>
+    <h3>What it looks at</h3>
+    <ul class="plain-list">
+      <li><strong>Seller history:</strong> time selling and feedback (seller performance data)</li>
+      <li><strong>Brand authorisation:</strong> whether the brand lists the seller as authorised (Brand Registry)</li>
+      <li><strong>Price against other sellers:</strong> offers far below others on the same listing</li>
+      <li><strong>Review patterns:</strong> reviews mentioning fakes, wrong items or mismatched descriptions, with near-duplicates removed</li>
+      <li><strong>Past complaints:</strong> authenticity complaints in the last 90 days</li>
+    </ul>
+    <h3>What the bands mean</h3>
+    <ul class="plain-list" id="bandMeanings"></ul>
+    <h3>What it cannot tell you</h3>
+    <p>A High band does not prove a product is genuine, and a Low band does not prove it is fake. Keep reading reviews and seller details, especially for expensive items.</p>
+    <h3>When there is not enough data</h3>
+    <p>Offers from sellers with fewer than 20 reviews or under 90 days of history are not scored.</p>
+    <h3>If a seller disagrees</h3>
+    <p>Sellers can dispute any factor. A person reviews the dispute before the score changes.</p>
+  </aside>
+
+  <div class="sr-only" aria-live="polite" id="announcer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

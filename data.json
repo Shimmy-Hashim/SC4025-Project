@@ -1,0 +1,249 @@
+{
+  "_note": "Demo data. Sellers, ratings, reviews and scores are fictional. The backend replaces this file; see README.",
+  "updated": "2026-11-06",
+  "product": {
+    "title": "Apple iPhone 18 Pro Max (1 TB) - Glacier | 17.42 cm (6.9″) Super Retina XDR Display with ProMotion, A20 Pro Chip, 48MP Fusion Main Camera with Variable Aperture",
+    "shortTitle": "Apple iPhone 18 Pro Max (1 TB) - Glacier",
+    "store": "Visit the Apple Store",
+    "rating": 4.5,
+    "ratingCount": 1284,
+    "image": "assets/product.jpg",
+    "breadcrumb": [
+      "Electronics",
+      "Mobiles & Accessories",
+      "Smartphones"
+    ],
+    "bullets": [
+      "17.42 cm (6.9″) Super Retina XDR display with ProMotion",
+      "A20 Pro chip",
+      "48MP Fusion main camera with variable aperture",
+      "1 TB storage, Glacier finish"
+    ]
+  },
+  "sellers": [
+    {
+      "id": "A",
+      "name": "NovaMobile Authorised",
+      "price": 254900,
+      "delivery": "FREE delivery Tomorrow, 8 November",
+      "band": "High",
+      "score": 86,
+      "reason": null,
+      "inline": [
+        "brand",
+        "history",
+        "price"
+      ],
+      "factors": {
+        "history": {
+          "status": "pass",
+          "short": "6 years selling · 98% positive feedback",
+          "text": "6 years selling, 98% positive feedback from 8,410 ratings.",
+          "source": "Seller performance data"
+        },
+        "brand": {
+          "status": "pass",
+          "short": "Authorised Apple reseller",
+          "text": "Listed by the brand as an authorised reseller.",
+          "source": "Brand Registry"
+        },
+        "price": {
+          "status": "pass",
+          "short": "Price in line with other sellers",
+          "text": "₹2,54,900 matches the brand's launch price.",
+          "source": "Prices from other sellers on this listing"
+        },
+        "reviews": {
+          "status": "pass",
+          "short": "No unusual review patterns",
+          "text": "No reviews for this seller mention a fake, used or mismatched device.",
+          "source": "Review analysis",
+          "flagged": [],
+          "excludedDuplicates": 0
+        },
+        "complaints": {
+          "status": "pass",
+          "short": "No authenticity complaints",
+          "text": "No authenticity complaints in the last 90 days.",
+          "source": "Customer complaints"
+        }
+      }
+    },
+    {
+      "id": "B",
+      "name": "Metro Phone Hub",
+      "price": 249990,
+      "delivery": "FREE delivery Monday, 10 November",
+      "band": "Medium",
+      "score": 61,
+      "reason": null,
+      "inline": [
+        "history",
+        "brand",
+        "reviews"
+      ],
+      "factors": {
+        "history": {
+          "status": "pass",
+          "short": "3 years selling · 94% positive feedback",
+          "text": "3 years selling, 94% positive feedback from 1,920 ratings.",
+          "source": "Seller performance data"
+        },
+        "brand": {
+          "status": "warn",
+          "short": "Not listed as an authorised reseller",
+          "text": "Not found in the brand's list of authorised resellers.",
+          "source": "Brand Registry"
+        },
+        "price": {
+          "status": "pass",
+          "short": "Price in line with other sellers",
+          "text": "₹2,49,990 is within 2% of the other established sellers.",
+          "source": "Prices from other sellers on this listing"
+        },
+        "reviews": {
+          "status": "warn",
+          "short": "Some reviews mention packaging differences",
+          "text": "6 of 112 reviews mention packaging that differs from the official box.",
+          "source": "Review analysis",
+          "flagged": [
+            {
+              "tag": "Description mismatch",
+              "stars": 3,
+              "text": "Box looked different from the photos on the brand store, but the phone works fine."
+            },
+            {
+              "tag": "Authenticity",
+              "stars": 2,
+              "text": "Seal was missing on arrival. Phone activated normally, still unsure."
+            },
+            {
+              "tag": "Description mismatch",
+              "stars": 3,
+              "text": "Came without the printed guide shown in the listing."
+            }
+          ],
+          "excludedDuplicates": 4
+        },
+        "complaints": {
+          "status": "pass",
+          "short": "No authenticity complaints",
+          "text": "No authenticity complaints in the last 90 days.",
+          "source": "Customer complaints"
+        }
+      }
+    },
+    {
+      "id": "C",
+      "name": "QuickDeal Gadgets",
+      "price": 164999,
+      "delivery": "Delivery Wednesday, 12 November · ₹99",
+      "band": "Low",
+      "score": 28,
+      "reason": null,
+      "inline": [
+        "price",
+        "history",
+        "brand"
+      ],
+      "factors": {
+        "history": {
+          "status": "warn",
+          "short": "Only 4 months of seller history",
+          "text": "4 months selling, 81% positive feedback from 46 ratings.",
+          "source": "Seller performance data"
+        },
+        "brand": {
+          "status": "warn",
+          "short": "Not listed as an authorised reseller",
+          "text": "Not found in the brand's list of authorised resellers.",
+          "source": "Brand Registry"
+        },
+        "price": {
+          "status": "warn",
+          "short": "Price 34% below other sellers",
+          "text": "₹1,64,999 is 34% below the other three sellers (₹2,49,990 to ₹2,54,900).",
+          "source": "Prices from other sellers on this listing"
+        },
+        "reviews": {
+          "status": "warn",
+          "short": "Reviews mention used or refurbished devices",
+          "text": "5 of 31 reviews for this seller mention a used or refurbished device.",
+          "source": "Review analysis",
+          "flagged": [
+            {
+              "tag": "Authenticity",
+              "stars": 1,
+              "text": "Battery health showed 91% on day one. This was not a new phone."
+            },
+            {
+              "tag": "Wrong item",
+              "stars": 1,
+              "text": "Received a different storage size from the one I ordered."
+            },
+            {
+              "tag": "Authenticity",
+              "stars": 2,
+              "text": "Box was resealed and the IMEI did not match the box label."
+            }
+          ],
+          "excludedDuplicates": 2
+        },
+        "complaints": {
+          "status": "warn",
+          "short": "3 recent authenticity complaints",
+          "text": "3 authenticity complaints in the last 90 days.",
+          "source": "Customer complaints"
+        }
+      }
+    },
+    {
+      "id": "D",
+      "name": "FreshTech Store",
+      "price": 252000,
+      "delivery": "FREE delivery Tuesday, 11 November",
+      "band": "Not enough data",
+      "score": null,
+      "reason": "Joined 3 weeks ago with only 2 reviews, so it is too new to assess. This is not a warning.",
+      "inline": [
+        "history",
+        "reviews",
+        "price"
+      ],
+      "factors": {
+        "history": {
+          "status": "na",
+          "short": "Seller history: not enough yet",
+          "text": "Joined 3 weeks ago. Sellers need 90 days of history to be scored.",
+          "source": "Seller performance data"
+        },
+        "brand": {
+          "status": "na",
+          "short": "Brand authorisation: not available",
+          "text": "No authorisation record found yet.",
+          "source": "Brand Registry"
+        },
+        "price": {
+          "status": "pass",
+          "short": "Price in line with other sellers",
+          "text": "₹2,52,000 is in line with the other established sellers.",
+          "source": "Prices from other sellers on this listing"
+        },
+        "reviews": {
+          "status": "na",
+          "short": "Reviews: only 2 so far",
+          "text": "Only 2 reviews so far. At least 20 are needed to check patterns.",
+          "source": "Review analysis",
+          "flagged": [],
+          "excludedDuplicates": 0
+        },
+        "complaints": {
+          "status": "na",
+          "short": "Complaints: not enough history",
+          "text": "Too little history to assess complaints.",
+          "source": "Customer complaints"
+        }
+      }
+    }
+  ]
+}
