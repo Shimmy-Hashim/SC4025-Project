@@ -20,6 +20,10 @@
     complaints: "Past complaints"
   };
   const STATUS_WORD = { pass: "Pass", warn: "Warning", na: "Not available" };
+  // A warn factor may carry severity "alert": serious, cannot be outweighed, shown prominently.
+  const isAlert = (f) => f.status === "warn" && f.severity === "alert";
+  const factorIcon = (f) => (isAlert(f) ? "fail" : f.status);
+  const factorWord = (f) => (isAlert(f) ? "Serious alert" : STATUS_WORD[f.status]);
   const BANDS = {
     High: { rank: 3, cls: "high", icon: "pass", meaning: "Factors are consistent with a genuine product from a reliable seller." },
     Medium: { rank: 2, cls: "medium", icon: "warn", meaning: "Some factors need your attention. Open \"Why this score\" to see which." },
@@ -78,6 +82,8 @@
     need(d.product && typeof d.product.title === "string", "product.title is missing.");
     need(d.product && typeof d.product.shortTitle === "string", "product.shortTitle is missing.");
     need(Array.isArray(d.sellers) && d.sellers.length > 0, "sellers must be a non-empty list.");
+    need(d.weights == null || (Array.isArray(d.weights) && d.weights.every((w) => FACTOR_ORDER.includes(w.factor) && typeof w.weight === "number" && typeof w.why === "string")),
+      "weights must list factors with a number weight and a why text.");
     (d.sellers || []).forEach((s, i) => {
       const at = "sellers[" + i + "]";
       need(s.id, at + ".id is missing.");
@@ -91,8 +97,11 @@
         const f = s.factors && s.factors[k];
         need(f && ["pass", "warn", "na"].includes(f.status), at + ".factors." + k + ".status must be pass, warn or na.");
         need(f && f.short && f.text && f.source, at + ".factors." + k + " needs short, text and source.");
+        need(!f || !("severity" in f) || (f.status === "warn" && ["concern", "alert"].includes(f.severity)),
+          at + ".factors." + k + ".severity must be concern or alert, on a warn status only.");
       });
       (s.inline || []).forEach((k) => need(FACTOR_ORDER.includes(k), at + ".inline has unknown key \"" + k + "\"."));
+      need(s.alert == null || typeof s.alert === "string", at + ".alert must be text or null.");
     });
     return errs;
   }
@@ -132,6 +141,7 @@
     renderStatic();
     wire();
     renderOffer();
+    setupEditor();
   }
 
   // Offers with a higher band than the current one (for Medium/Low only).
@@ -161,6 +171,19 @@
     const img = $("productImage");
     img.onload = () => { img.hidden = false; $("imagePlaceholder").hidden = true; };
     img.src = p.image;
+    // US8: how much each factor counts, as exported by the backend (highest first)
+    if (Array.isArray(DATA.weights) && DATA.weights.length) {
+      $("howWeights").replaceChildren(...DATA.weights.map((w) => {
+        const bar = el("span", { cls: "weight-bar", attrs: { "aria-hidden": "true" } }, [el("span", { cls: "weight-fill" })]);
+        bar.firstChild.style.width = w.weight + "%";
+        return el("li", { cls: "weight-row" }, [
+          el("div", { cls: "weight-top" }, [el("strong", { text: FACTOR_NAMES[w.factor] }), el("span", { cls: "weight-pct", text: w.weight + "%" })]),
+          bar,
+          el("p", { cls: "small muted", text: w.why })
+        ]);
+      }));
+      $("howWeightsSection").hidden = false;
+    }
     $("bandMeanings").replaceChildren(...Object.keys(BANDS).map((b) =>
       el("li", { cls: "band-meaning" }, [bandChip(b), el("span", { text: BANDS[b].meaning })])));
     $("demoButtons").replaceChildren(...sellers.map((s) => {
@@ -177,11 +200,19 @@
     $("delivery").textContent = s.delivery;
     $("sellerName").textContent = s.name;
 
-    // Price warning (US4): shown only when the price factor warns.
+    // Serious alert: shown above everything else, even when the offer is not scored.
+    const ab = $("alertBanner");
+    if (s.alert) {
+      ab.replaceChildren(icon("fail"), el("span", null, [el("strong", { text: s.alert }),
+        el("span", { text: " Verify this offer before buying." })]));
+      ab.hidden = false;
+    } else ab.hidden = true;
+
+    // Price warning (US4): shown when the price factor raises a concern (an alert uses the banner).
     const pw = $("priceWarning");
-    if (s.factors.price.status === "warn") {
-      // US4: state the usual range from the other sellers' prices
-      const others = sellers.filter((o) => o.id !== s.id).map((o) => o.price);
+    if (s.factors.price.status === "warn" && !isAlert(s.factors.price)) {
+      // US4: state the usual range from the other sellers' prices, leaving out extreme offers
+      const others = sellers.filter((o) => o.id !== s.id && !isAlert(o.factors.price)).map((o) => o.price);
       const range = others.length ? " (usually " + inr(Math.min(...others)) + " to " + inr(Math.max(...others)) + ")" : "";
       pw.replaceChildren(icon("warn"), el("span", { text: s.factors.price.short + range }));
       pw.hidden = false;
@@ -197,7 +228,7 @@
     // Three inline factors
     $("inlineFactors").replaceChildren(...s.inline.map((k) => {
       const f = s.factors[k];
-      return el("li", null, [icon(f.status), el("span", { text: f.short })]);
+      return el("li", null, [icon(factorIcon(f)), el("span", { text: f.short })]);
     }));
 
     // Compare link (US5): Medium/Low with at least one higher-scoring offer; other offers for Not enough data.
@@ -236,7 +267,7 @@
     d.querySelector("[data-close]").focus();
   }
   function closeDrawers(silent) {
-    ["whyDrawer", "compareDrawer", "howDrawer"].forEach((id) => { $(id).hidden = true; });
+    ["whyDrawer", "compareDrawer", "howDrawer", "inputsDrawer"].forEach((id) => { $(id).hidden = true; });
     $("scrim").hidden = true;
     if (!silent && lastFocus) lastFocus.focus();
   }
@@ -251,8 +282,8 @@
     $("whyFactors").replaceChildren(...FACTOR_ORDER.map((k) => {
       const f = s.factors[k];
       const card = el("li", { cls: "factor-card" }, [
-        el("div", { cls: "factor-head" }, [icon(f.status), el("strong", { text: FACTOR_NAMES[k] }),
-          el("span", { cls: "status st-" + f.status, text: STATUS_WORD[f.status] })]),
+        el("div", { cls: "factor-head" }, [icon(factorIcon(f)), el("strong", { text: FACTOR_NAMES[k] }),
+          el("span", { cls: "status st-" + factorIcon(f), text: factorWord(f) })]),
         el("p", { text: f.text }),
         el("p", { cls: "source", text: "Source: " + f.source + " · Updated " + updated })
       ]);
@@ -359,6 +390,193 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawers(); });
     $("cartHeading").setAttribute("tabindex", "-1");
     document.querySelectorAll(".icon[data-icon]").forEach((n) => { n.innerHTML = ICONS[n.dataset.icon]; n.classList.add("st-" + n.dataset.icon); });
+  }
+
+  // ---------- Demo: edit seller inputs ----------
+  // Only appears when the backend demo server is running (python -m trust_score.cli serve).
+  // The backend re-scores with its real rules and returns a new data.json document.
+  let editable = null;
+  let originalInputs = null;
+  let editingId = null;
+  let baseline = null;     // the original scored document, for "compared with original"
+  let rescoreTimer = null;
+  let latestRequest = 0;   // responses from older requests are ignored
+  const RESCORE_DELAY_MS = 350;
+
+  async function setupEditor() {
+    try {
+      const res = await fetch("api/inputs", { cache: "no-store" });
+      if (!res.ok || !(res.headers.get("Content-Type") || "").includes("json")) return;
+      editable = await res.json();
+    } catch (e) {
+      return; // static hosting: no backend, so no editor
+    }
+    originalInputs = JSON.parse(JSON.stringify(editable));
+    baseline = DATA;
+    $("inSeller").replaceChildren(...editable.sellers.map((s) =>
+      el("option", { text: "Seller " + s.id + " · " + s.name, attrs: { value: s.id } })));
+    $("inSeller").addEventListener("change", () => {
+      if (readForm()) {
+        fillForm($("inSeller").value);
+        selectSeller(editingId);
+        renderLiveResult();
+      } else $("inSeller").value = editingId;
+    });
+    $("editInputs").hidden = false;
+    $("editInputs").addEventListener("click", () => {
+      fillForm(current.id);
+      $("inputsError").hidden = true;
+      renderLiveResult();
+      renderChanges();
+      openDrawer("inputsDrawer");
+    });
+    // Live re-score: any edit to a seller field schedules one backend call after a short pause.
+    $("inputsForm").addEventListener("input", (e) => {
+      if (e.target.id === "inSeller") return;
+      if (e.target.id === "inComplaintsData") syncComplaintFields();
+      scheduleRescore();
+    });
+    $("inputsForm").addEventListener("submit", (e) => { e.preventDefault(); scheduleRescore(); });
+    $("resetInputs").addEventListener("click", () => {
+      editable = JSON.parse(JSON.stringify(originalInputs));
+      fillForm(editingId);
+      $("inputsError").hidden = true;
+      rescore();
+    });
+  }
+
+  function scheduleRescore() {
+    clearTimeout(rescoreTimer);
+    if (!readForm()) return;
+    $("liveResult").classList.add("busy");
+    rescoreTimer = setTimeout(rescore, RESCORE_DELAY_MS);
+  }
+
+  function editableSeller(id) { return editable.sellers.find((s) => s.id === id); }
+
+  function fillForm(id) {
+    const s = editableSeller(id);
+    editingId = id;
+    $("inSeller").value = id;
+    $("inPrice").value = s.price;
+    $("inDays").value = s.daysSelling;
+    $("inPct").value = s.positiveFeedbackPct == null ? "" : s.positiveFeedbackPct;
+    $("inRatings").value = s.feedbackCount;
+    $("inOdr").value = s.odrPct == null ? "" : s.odrPct;
+    $("inBrand").value = s.brandStatus;
+    $("inComplaintsData").value = String(s.complaintsAvailable);
+    $("inComplaints").value = s.recentComplaints;
+    $("inOrders").value = s.ordersInWindow == null ? "" : s.ordersInWindow;
+    $("inConfirmed").checked = s.confirmedCounterfeit;
+    $("inFakeReviews").value = s.extraFakeReviews;
+    syncComplaintFields();
+  }
+
+  // Complaint fields mean nothing when there is no complaints data.
+  function syncComplaintFields() {
+    const available = $("inComplaintsData").value === "true";
+    ["inComplaints", "inOrders", "inConfirmed"].forEach((id) => { $(id).disabled = !available; });
+  }
+
+  // Copies the form into the seller being edited. Returns false and shows why if a value is invalid.
+  function readForm() {
+    const whole = (id, label, min, max) => {
+      const v = Number($(id).value);
+      if ($(id).value === "" || !Number.isInteger(v) || v < min || v > max) throw new Error(label + " must be a whole number from " + min + " to " + max + ".");
+      return v;
+    };
+    const optional = (id, label, min, max) => {
+      const raw = $(id).value.trim();
+      if (raw === "") return null;
+      const v = Number(raw);
+      if (Number.isNaN(v) || v < min || v > max) throw new Error(label + " must be " + min + " to " + max + ", or blank.");
+      return v;
+    };
+    try {
+      const s = editableSeller(editingId);
+      s.price = whole("inPrice", "Price", 1, 10000000);
+      s.daysSelling = whole("inDays", "Days selling", 0, 10950);
+      s.positiveFeedbackPct = optional("inPct", "Positive feedback", 0, 100);
+      s.feedbackCount = whole("inRatings", "Number of ratings", 0, 10000000);
+      s.odrPct = optional("inOdr", "Order defect rate", 0, 100);
+      s.brandStatus = $("inBrand").value;
+      s.complaintsAvailable = $("inComplaintsData").value === "true";
+      s.recentComplaints = whole("inComplaints", "Complaints", 0, 20);
+      const orders = optional("inOrders", "Orders in the last 90 days", 1, 10000000);
+      if (orders !== null && !Number.isInteger(orders)) throw new Error("Orders in the last 90 days must be a whole number.");
+      s.ordersInWindow = orders;
+      s.confirmedCounterfeit = $("inConfirmed").checked;
+      s.extraFakeReviews = whole("inFakeReviews", "New 1★ reviews", 0, 20);
+      $("inputsError").hidden = true;
+      return true;
+    } catch (e) {
+      $("inputsError").textContent = e.message;
+      $("inputsError").hidden = false;
+      return false;
+    }
+  }
+
+  async function rescore() {
+    const requestId = ++latestRequest;
+    const previousBand = current.band;
+    try {
+      const res = await fetch("api/score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sellers: editable.sellers })
+      });
+      const doc = await res.json();
+      if (requestId !== latestRequest) return; // a newer edit is already being scored
+      if (!res.ok) throw new Error(doc.error || "The backend returned " + res.status + ".");
+      const errs = validate(doc);
+      if (errs.length) throw new Error("The backend returned an invalid document: " + errs.join(" "));
+      DATA = doc;
+      sellers = DATA.sellers;
+      renderStatic();
+      selectSeller(editingId);
+      renderLiveResult();
+      renderChanges();
+      if (current.band !== previousBand) announce("Seller " + current.id + " is now rated " + current.band + ".");
+    } catch (e) {
+      if (requestId !== latestRequest) return;
+      $("inputsError").textContent = "Could not re-score: " + e.message;
+      $("inputsError").hidden = false;
+    } finally {
+      if (requestId === latestRequest) $("liveResult").classList.remove("busy");
+    }
+  }
+
+  // The edited seller's current result: band, score and every factor's status.
+  function renderLiveResult() {
+    const s = sellers.find((o) => o.id === editingId);
+    const score = s.score == null ? "Not scored" : "Score " + s.score + " / 100";
+    $("liveResult").replaceChildren(
+      el("div", { cls: "live-head" }, [el("strong", { text: "Seller " + s.id + " now" }), bandChip(s.band),
+        el("span", { cls: "muted", text: score })]),
+      s.reason ? el("p", { cls: "reason", text: s.reason }) : null,
+      el("ul", { cls: "live-factors" }, FACTOR_ORDER.map((k) => el("li", null, [
+        icon(s.factors[k].status),
+        el("span", null, [el("strong", { text: FACTOR_NAMES[k] + ": " }), document.createTextNode(s.factors[k].short)])
+      ])))
+    );
+  }
+
+  // Every seller compared with the original inputs.
+  function renderChanges() {
+    const scoreText = (v) => (v == null ? "not scored" : "score " + v);
+    const rows = sellers.map((s) => {
+      const b = baseline.sellers.find((o) => o.id === s.id);
+      const changed = b.band !== s.band || b.score !== s.score;
+      return el("li", { cls: "change-row" }, [
+        el("strong", { text: "Seller " + s.id }),
+        changed ? bandChip(b.band) : null,
+        changed ? el("span", { text: "→" }) : null,
+        bandChip(s.band),
+        el("span", { cls: "muted", text: changed ? scoreText(b.score) + " → " + scoreText(s.score) : "unchanged" })
+      ]);
+    });
+    $("rescoreResult").replaceChildren(el("strong", { text: "Compared with the original inputs" }), el("ul", null, rows));
+    $("rescoreResult").hidden = false;
   }
 
   start();

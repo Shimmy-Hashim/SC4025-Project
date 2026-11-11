@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Product Trustworthiness Score · Prototype</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <!-- Demo bar: lets a tester start from any seller offer (one per persona flow). Not part of the feature. -->
   <div class="demo-bar" role="region" aria-label="Prototype demo controls">
     <span>Prototype demo · start from an offer:</span>
     <div class="demo-buttons" id="demoButtons"></div>
+    <!-- Shown only when the backend demo server is running (python -m trust_score.cli serve). -->
+    <button class="demo-edit" id="editInputs" aria-haspopup="dialog" hidden>✎ Edit seller inputs</button>
   </div>
 
   <header class="site-header">
@@ -49,6 +51,7 @@
 
       <aside class="buy-box" aria-label="Buy box">
         <div class="price-box" id="priceBox"></div>
+        <div class="alert-banner" id="alertBanner" role="alert" hidden></div>
         <div class="price-warning" id="priceWarning" hidden></div>
         <div id="delivery"></div>
         <div class="in-stock">In stock</div>
@@ -128,18 +131,108 @@
       <li><strong>Review patterns:</strong> reviews mentioning fakes, wrong items or mismatched descriptions, with near-duplicates removed</li>
       <li><strong>Past complaints:</strong> authenticity complaints in the last 90 days</li>
     </ul>
+    <section class="how-weights" id="howWeightsSection" aria-labelledby="howWeightsTitle" hidden>
+      <h3 id="howWeightsTitle">How much each factor counts</h3>
+      <p class="small muted">Direct reports from buyers count most. Signals that can have innocent explanations count less. The team set these shares using swing weighting, a structured method from UK government decision-analysis guidance. They are the team's judgement, not a measured accuracy.</p>
+      <ul class="weight-list" id="howWeights"></ul>
+    </section>
+    <h3>Serious alerts come first</h3>
+    <p>Some findings are shown in a red alert and always give a Low band, whatever the other factors say: a price far below every other seller, a seller claiming authorisation the brand denies, or a counterfeit confirmed by an investigation. Missing information never counts against a seller.</p>
     <h3>What the bands mean</h3>
     <ul class="plain-list" id="bandMeanings"></ul>
     <h3>What it cannot tell you</h3>
     <p>A High band does not prove a product is genuine, and a Low band does not prove it is fake. Keep reading reviews and seller details, especially for expensive items.</p>
     <h3>When there is not enough data</h3>
-    <p>Offers from sellers with fewer than 20 reviews or under 90 days of history are not scored.</p>
+    <p>Offers from sellers with fewer than 20 reviews or under 90 days of history are not scored. A serious alert is still shown for them.</p>
     <h3>If a seller disagrees</h3>
     <p>Sellers can dispute any factor. A person reviews the dispute before the score changes.</p>
   </aside>
 
+  <!-- Demo-only panel: edits go to the backend, which re-scores with the real rules. Not part of the feature. -->
+  <aside class="drawer" id="inputsDrawer" role="dialog" aria-modal="true" aria-labelledby="inputsTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="inputsTitle">Edit seller inputs</h2>
+      <button class="text-button" data-close>✕ Close</button>
+    </div>
+    <p class="muted small">Prototype demo. Change what the backend knows about a seller and the score updates as you type. The backend runs the same Python rules that produce data.json. Reloading the page resets every change.</p>
+    <form class="inputs-form" id="inputsForm" novalidate>
+      <label class="field">Seller
+        <select id="inSeller"></select>
+      </label>
+      <div class="live-result" id="liveResult" aria-live="polite"></div>
+      <fieldset class="field-group">
+        <legend>Price</legend>
+        <label class="field">Price (₹)
+          <input type="number" id="inPrice" min="1" step="1" required>
+          <span class="hint">More than 30% below the typical price is a concern; more than 70% below is a serious alert.</span>
+        </label>
+      </fieldset>
+      <fieldset class="field-group">
+        <legend>Seller history</legend>
+        <label class="field">Days selling
+          <input type="number" id="inDays" min="0" step="1" required>
+          <span class="hint">Under 90 days is not scored. Age alone never warns.</span>
+        </label>
+        <label class="field">Positive feedback (%)
+          <input type="number" id="inPct" min="0" max="100" step="0.1" placeholder="No feedback yet">
+          <span class="hint">Below 90% is a concern. Leave blank for no feedback data.</span>
+        </label>
+        <label class="field">Number of ratings
+          <input type="number" id="inRatings" min="0" step="1" required>
+          <span class="hint">Under 20 ratings is too few to judge feedback.</span>
+        </label>
+        <label class="field">Order defect rate (%)
+          <input type="number" id="inOdr" min="0" max="100" step="0.1" placeholder="Not available">
+          <span class="hint">1% or more is a concern (Amazon's target is under 1%).</span>
+        </label>
+      </fieldset>
+      <fieldset class="field-group">
+        <legend>Brand authorisation</legend>
+        <label class="field">What the brand says
+          <select id="inBrand">
+            <option value="verified">Verified authorised reseller</option>
+            <option value="unverified">Not verified (no record)</option>
+            <option value="not_authorised">Confirmed not authorised</option>
+            <option value="contradicted">Claims authorisation the brand denies</option>
+          </select>
+          <span class="hint">Not verified is not counted. Confirmed not authorised is a concern. A denied claim is a serious alert.</span>
+        </label>
+      </fieldset>
+      <fieldset class="field-group">
+        <legend>Complaints</legend>
+        <label class="field">Complaints data
+          <select id="inComplaintsData">
+            <option value="true">Available</option>
+            <option value="false">Not available</option>
+          </select>
+          <span class="hint">No data is not the same as zero complaints.</span>
+        </label>
+        <label class="field">Orders with authenticity complaints (last 90 days)
+          <input type="number" id="inComplaints" min="0" max="20" step="1" required>
+          <span class="hint">2 or more is a concern, unless that is under 0.5% of orders.</span>
+        </label>
+        <label class="field">Total orders (last 90 days)
+          <input type="number" id="inOrders" min="1" step="1" placeholder="Unknown">
+        </label>
+        <label class="check"><input type="checkbox" id="inConfirmed"> An investigation confirmed a counterfeit item</label>
+      </fieldset>
+      <fieldset class="field-group">
+        <legend>Reviews</legend>
+        <label class="field">Add new 1★ "fake item" reviews
+          <input type="number" id="inFakeReviews" min="0" max="20" step="1" required>
+          <span class="hint">There are 6 different texts. Beyond that, repeats count as copies.</span>
+        </label>
+      </fieldset>
+      <p class="form-error" id="inputsError" role="alert" hidden></p>
+      <div class="form-actions">
+        <button type="button" class="text-button" id="resetInputs">Reset all sellers to the original inputs</button>
+      </div>
+    </form>
+    <div class="rescore-result" id="rescoreResult" aria-live="polite" hidden></div>
+  </aside>
+
   <div class="sr-only" aria-live="polite" id="announcer"></div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
