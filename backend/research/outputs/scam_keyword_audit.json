@@ -1,0 +1,56 @@
+{
+  "definition": "Text mention only; no confirmed fraud or intent labels",
+  "general_amazon": {
+    "literal_scam": {
+      "with_keyword": {
+        "reviews": 8,
+        "mean_stars": 1.75,
+        "low_star_reviews": 6,
+        "low_star_fraction": 0.75,
+        "verified_purchase_fraction": 0.375,
+        "any_helpful_vote_fraction": 0.875,
+        "median_body_characters": 299.0
+      },
+      "without_keyword": {
+        "reviews": 39978,
+        "mean_stars": 4.250237630696883,
+        "low_star_reviews": 5065,
+        "low_star_fraction": 0.12669468207514134,
+        "verified_purchase_fraction": 0.7817299514733104,
+        "any_helpful_vote_fraction": 0.22767522137175447,
+        "median_body_characters": 162.0
+      }
+    },
+    "scam_family": {
+      "with_keyword": {
+        "reviews": 12,
+        "mean_stars": 1.5,
+        "low_star_reviews": 10,
+        "low_star_fraction": 0.8333333333333334,
+        "verified_purchase_fraction": 0.5833333333333334,
+        "any_helpful_vote_fraction": 0.6666666666666666,
+        "median_body_characters": 473.0
+      },
+      "without_keyword": {
+        "reviews": 39974,
+        "mean_stars": 4.250562865862811,
+        "low_star_reviews": 5061,
+        "low_star_fraction": 0.12660729474158203,
+        "verified_purchase_fraction": 0.7817081102716766,
+        "any_helpful_vote_fraction": 0.2276729874418372,
+        "median_body_characters": 162.0
+      }
+    }
+  },
+  "main_india_scam_family_audit": {
+    "matched_product_ids": 5,
+    "distinct_normalized_review_blobs": 1,
+    "context_inspection": "The repeated text's scam reference concerns an installation service, not a counterfeit or wrong-item allegation.",
+    "interpretation": "Five product matches are not five independent relevant product-scam examples."
+  },
+  "general_context_inspection": {
+    "scam_call_mentions": 2,
+    "interpretation": "Two keyword matches discuss scam telephone calls in call-blocker reviews; the keyword alone is not a complaint about the purchased product."
+  },
+  "synthetic_column_decision": "Observed text supports derived keyword indicators. No synthetic fraud outcomes were generated."
+}

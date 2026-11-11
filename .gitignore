@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Raw datasets and files containing real review text: no redistribution grant
+# (Indian Products on Amazon is "Data files © Original Authors"); see backend/research/README.md
+backend/research/data/
+backend/research/outputs/indian_reviews_deduplicated_flagged.csv
+backend/research/outputs/manual_annotation_queue.csv
+backend/research/outputs/amazon_india_augmented.csv
+backend/research/outputs/general_amazon_candidate_reviews.csv
+backend/research/outputs/general_amazon_india_asin_join.csv
+backend/research/outputs/listing_evidence_audit.json
+backend/research/outputs/listing_context_audit.json
+backend/research/outputs/synthetic_indian_products/reviews_real_and_synthetic.csv

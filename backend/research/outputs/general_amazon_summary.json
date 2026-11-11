@@ -1,0 +1,406 @@
+{
+  "analysis_date": "2026-10-31",
+  "raw_sample_records": 40000,
+  "deduplicated_records": 39996,
+  "duplicate_records_removed": 4,
+  "nonempty_review_records": 39986,
+  "empty_review_records": 10,
+  "unique_reviewed_asins": 33779,
+  "first_review_date": "2001-08-11 00:26:51+00:00",
+  "last_review_date": "2023-03-18 02:35:08.237000+00:00",
+  "sampling": "first 20000 records from each of Electronics and Cell_Phones_and_Accessories; convenience prefixes, not random or representative",
+  "main_exact_asin_overlap_count": 21,
+  "main_exact_asin_overlap": [
+    "B003L62T7W",
+    "B005LJQMCK",
+    "B005LJQMZC",
+    "B006LW0WDQ",
+    "B008IFXQFU",
+    "B00NH11PEY",
+    "B00ZYLMQH0",
+    "B0148NPH9I",
+    "B014I8SSD0",
+    "B015OW3M1W",
+    "B01D5H8ZI8",
+    "B01GGKYKQM",
+    "B0711PVX6Z",
+    "B07DC4RZPY",
+    "B07KSB1MLX",
+    "B07TMCXRFV",
+    "B082T6GVG9",
+    "B082T6GXS5",
+    "B08GTYFC37",
+    "B095RTJH1M",
+    "B0B23LW7NV"
+  ],
+  "main_exact_asin_join_review_rows": 39,
+  "main_exact_asin_join_candidate_reviews": 0,
+  "main_parent_asin_overlap_count": 4,
+  "main_parent_asin_overlap": [
+    "B00ZYLMQH0",
+    "B07DC4RZPY",
+    "B095RTJH1M",
+    "B0B23LW7NV"
+  ],
+  "keyword_counts": [
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "scam_word_flag",
+      "positive_records": 12,
+      "total_records": 39986,
+      "sample_fraction": 0.000300105036762867
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "general_deception_flag",
+      "positive_records": 19,
+      "total_records": 39986,
+      "sample_fraction": 0.00047516630820787275
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "counterfeit_term_flag",
+      "positive_records": 98,
+      "total_records": 39986,
+      "sample_fraction": 0.0024508578002300804
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "wrong_product_phrase_flag",
+      "positive_records": 58,
+      "total_records": 39986,
+      "sample_fraction": 0.0014505076776871906
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "not_as_advertised_phrase_flag",
+      "positive_records": 25,
+      "total_records": 39986,
+      "sample_fraction": 0.0006252188265893063
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "any_complaint_rule_flag",
+      "positive_records": 198,
+      "total_records": 39986,
+      "sample_fraction": 0.004951733106587306
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "scam_word_flag",
+      "positive_records": 6,
+      "total_records": 19991,
+      "sample_fraction": 0.0003001350607773498
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "general_deception_flag",
+      "positive_records": 12,
+      "total_records": 19991,
+      "sample_fraction": 0.0006002701215546997
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "counterfeit_term_flag",
+      "positive_records": 55,
+      "total_records": 19991,
+      "sample_fraction": 0.0027512380571257065
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "wrong_product_phrase_flag",
+      "positive_records": 30,
+      "total_records": 19991,
+      "sample_fraction": 0.001500675303886749
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "not_as_advertised_phrase_flag",
+      "positive_records": 16,
+      "total_records": 19991,
+      "sample_fraction": 0.0008003601620729328
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "any_complaint_rule_flag",
+      "positive_records": 112,
+      "total_records": 19991,
+      "sample_fraction": 0.0056025211345105295
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "scam_word_flag",
+      "positive_records": 6,
+      "total_records": 19995,
+      "sample_fraction": 0.0003000750187546887
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "general_deception_flag",
+      "positive_records": 7,
+      "total_records": 19995,
+      "sample_fraction": 0.0003500875218804701
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "counterfeit_term_flag",
+      "positive_records": 43,
+      "total_records": 19995,
+      "sample_fraction": 0.002150537634408602
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "wrong_product_phrase_flag",
+      "positive_records": 28,
+      "total_records": 19995,
+      "sample_fraction": 0.0014003500875218804
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "not_as_advertised_phrase_flag",
+      "positive_records": 9,
+      "total_records": 19995,
+      "sample_fraction": 0.000450112528132033
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "any_complaint_rule_flag",
+      "positive_records": 86,
+      "total_records": 19995,
+      "sample_fraction": 0.004301075268817204
+    }
+  ],
+  "associations": [
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "scam_word_flag",
+      "flag_value": 0,
+      "reviews": 39974,
+      "one_or_two_star_reviews": 5061,
+      "one_or_two_star_fraction": 0.12660729474158203,
+      "mean_rating": 4.250562865862811,
+      "verified_purchase_fraction": 0.7817081102716766,
+      "any_helpful_vote_fraction": 0.2276729874418372,
+      "median_text_characters": 162.0
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "scam_word_flag",
+      "flag_value": 1,
+      "reviews": 12,
+      "one_or_two_star_reviews": 10,
+      "one_or_two_star_fraction": 0.8333333333333334,
+      "mean_rating": 1.5,
+      "verified_purchase_fraction": 0.5833333333333334,
+      "any_helpful_vote_fraction": 0.6666666666666666,
+      "median_text_characters": 473.0
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 0,
+      "reviews": 39888,
+      "one_or_two_star_reviews": 5041,
+      "one_or_two_star_fraction": 0.12637886081026875,
+      "mean_rating": 4.25142900120337,
+      "verified_purchase_fraction": 0.781763939029282,
+      "any_helpful_vote_fraction": 0.22738668271159246,
+      "median_text_characters": 162.0
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 1,
+      "reviews": 98,
+      "one_or_two_star_reviews": 30,
+      "one_or_two_star_fraction": 0.30612244897959184,
+      "mean_rating": 3.561224489795918,
+      "verified_purchase_fraction": 0.7346938775510204,
+      "any_helpful_vote_fraction": 0.3979591836734694,
+      "median_text_characters": 413.0
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "reviews": 39788,
+      "one_or_two_star_reviews": 4985,
+      "one_or_two_star_fraction": 0.1252890318689052,
+      "mean_rating": 4.255629838142154,
+      "verified_purchase_fraction": 0.7816175731376295,
+      "any_helpful_vote_fraction": 0.22712878254750177,
+      "median_text_characters": 162.0
+    },
+    {
+      "sample": "pooled_deduplicated",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "reviews": 198,
+      "one_or_two_star_reviews": 86,
+      "one_or_two_star_fraction": 0.43434343434343436,
+      "mean_rating": 3.0656565656565657,
+      "verified_purchase_fraction": 0.7878787878787878,
+      "any_helpful_vote_fraction": 0.36363636363636365,
+      "median_text_characters": 283.5
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "scam_word_flag",
+      "flag_value": 0,
+      "reviews": 19985,
+      "one_or_two_star_reviews": 2867,
+      "one_or_two_star_fraction": 0.14345759319489618,
+      "mean_rating": 4.176232174130598,
+      "verified_purchase_fraction": 0.8432324243182386,
+      "any_helpful_vote_fraction": 0.19279459594696022,
+      "median_text_characters": 140.0
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "scam_word_flag",
+      "flag_value": 1,
+      "reviews": 6,
+      "one_or_two_star_reviews": 6,
+      "one_or_two_star_fraction": 1.0,
+      "mean_rating": 1.0,
+      "verified_purchase_fraction": 0.5,
+      "any_helpful_vote_fraction": 0.6666666666666666,
+      "median_text_characters": 691.0
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 0,
+      "reviews": 19936,
+      "one_or_two_star_reviews": 2852,
+      "one_or_two_star_fraction": 0.1430577849117175,
+      "mean_rating": 4.177618378812199,
+      "verified_purchase_fraction": 0.8432985553772071,
+      "any_helpful_vote_fraction": 0.19226524879614768,
+      "median_text_characters": 139.0
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 1,
+      "reviews": 55,
+      "one_or_two_star_reviews": 21,
+      "one_or_two_star_fraction": 0.38181818181818183,
+      "mean_rating": 3.327272727272727,
+      "verified_purchase_fraction": 0.7818181818181819,
+      "any_helpful_vote_fraction": 0.43636363636363634,
+      "median_text_characters": 367.0
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "reviews": 19879,
+      "one_or_two_star_reviews": 2817,
+      "one_or_two_star_fraction": 0.14170732934252225,
+      "mean_rating": 4.182403541425625,
+      "verified_purchase_fraction": 0.8433019769606117,
+      "any_helpful_vote_fraction": 0.19206197494843805,
+      "median_text_characters": 139.0
+    },
+    {
+      "sample": "Cell_Phones_and_Accessories",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "reviews": 112,
+      "one_or_two_star_reviews": 56,
+      "one_or_two_star_fraction": 0.5,
+      "mean_rating": 2.9107142857142856,
+      "verified_purchase_fraction": 0.8125,
+      "any_helpful_vote_fraction": 0.3482142857142857,
+      "median_text_characters": 260.5
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "scam_word_flag",
+      "flag_value": 0,
+      "reviews": 19989,
+      "one_or_two_star_reviews": 2194,
+      "one_or_two_star_fraction": 0.10976036820251138,
+      "mean_rating": 4.324878683275801,
+      "verified_purchase_fraction": 0.7201961078593226,
+      "any_helpful_vote_fraction": 0.26254439941968083,
+      "median_text_characters": 192.0
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "scam_word_flag",
+      "flag_value": 1,
+      "reviews": 6,
+      "one_or_two_star_reviews": 4,
+      "one_or_two_star_fraction": 0.6666666666666666,
+      "mean_rating": 2.0,
+      "verified_purchase_fraction": 0.6666666666666666,
+      "any_helpful_vote_fraction": 0.6666666666666666,
+      "median_text_characters": 390.5
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 0,
+      "reviews": 19952,
+      "one_or_two_star_reviews": 2189,
+      "one_or_two_star_fraction": 0.10971331194867683,
+      "mean_rating": 4.325180433039295,
+      "verified_purchase_fraction": 0.7202786688051324,
+      "any_helpful_vote_fraction": 0.26247995188452283,
+      "median_text_characters": 192.0
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 1,
+      "reviews": 43,
+      "one_or_two_star_reviews": 9,
+      "one_or_two_star_fraction": 0.20930232558139536,
+      "mean_rating": 3.86046511627907,
+      "verified_purchase_fraction": 0.6744186046511628,
+      "any_helpful_vote_fraction": 0.3488372093023256,
+      "median_text_characters": 520.0
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "reviews": 19909,
+      "one_or_two_star_reviews": 2168,
+      "one_or_two_star_fraction": 0.10889547440855894,
+      "mean_rating": 4.328745793359787,
+      "verified_purchase_fraction": 0.7200261188407253,
+      "any_helpful_vote_fraction": 0.2621427495102717,
+      "median_text_characters": 192.0
+    },
+    {
+      "sample": "Electronics",
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "reviews": 86,
+      "one_or_two_star_reviews": 30,
+      "one_or_two_star_fraction": 0.3488372093023256,
+      "mean_rating": 3.2674418604651163,
+      "verified_purchase_fraction": 0.7558139534883721,
+      "any_helpful_vote_fraction": 0.38372093023255816,
+      "median_text_characters": 323.0
+    }
+  ],
+  "unique_text_sensitivity": [
+    {
+      "counterfeit_term_flag": 0,
+      "texts": 37587,
+      "low_star_texts": 4991,
+      "low_star_fraction": 0.13278527150344535
+    },
+    {
+      "counterfeit_term_flag": 1,
+      "texts": 97,
+      "low_star_texts": 30,
+      "low_star_fraction": 0.30927835051546393
+    }
+  ],
+  "limitations": "Unvalidated wording flags; no India marketplace indicator, order-level seller ID or authenticated fraud outcome. No probability model."
+}

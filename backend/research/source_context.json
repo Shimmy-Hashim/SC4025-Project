@@ -1,0 +1,15 @@
+{
+  "confirmed_on": "2026-10-31",
+  "source": "User's unsaved task info.txt editor buffer, inspected through the VS Code UI",
+  "on_disk_file_was_empty": true,
+  "original_file_or_buffer_modified": false,
+  "subsequently_confirmed_from_saved_file": true,
+  "starting_sources": [
+    "https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset",
+    "https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023"
+  ],
+  "additional_sources_found": [
+    "https://www.kaggle.com/datasets/nehaprabhavalkar/indian-products-on-amazon",
+    "https://data.mendeley.com/datasets/2pv6d8fz7y/2"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "analysis_date": "2026-10-31",
+  "proposed_rule": "Individual review rating in {1,2}, followed by context-aware review-text screening",
+  "general_amazon": {
+    "nonempty_reviews": 39986,
+    "one_or_two_star_reviews": 5071,
+    "low_star_keyword_counts": {
+      "waste_of_money": 109,
+      "not_good": 40,
+      "poor_or_bad_quality": 83,
+      "fake_word": 12,
+      "counterfeit_wording": 30,
+      "wrong_product_wording": 22,
+      "not_as_advertised_wording": 22,
+      "deception_wording": 13
+    },
+    "low_star_review_categories": {
+      "counterfeit_wording_only": 30,
+      "mismatch_wording_only": 44,
+      "both_counterfeit_and_mismatch_wording": 0,
+      "general_dissatisfaction_or_deception_wording_only": 235,
+      "no_selected_keyword": 4762
+    },
+    "low_star_with_any_selected_wording": 309,
+    "low_star_with_authenticity_or_mismatch_wording": 74,
+    "all_star_authenticity_or_mismatch_wording": 180,
+    "above_two_star_authenticity_or_mismatch_wording": 106,
+    "interpretation": "Counts describe regex wording, not confirmed complaints, counterfeits or model accuracy."
+  },
+  "indian_products_supplement": {
+    "nonempty_reviews": 1388,
+    "one_or_two_star_reviews": 338,
+    "low_star_keyword_counts": {
+      "waste_of_money": 11,
+      "not_good": 14,
+      "poor_or_bad_quality": 5,
+      "fake_word": 20,
+      "counterfeit_wording": 41,
+      "wrong_product_wording": 0,
+      "not_as_advertised_wording": 1,
+      "deception_wording": 12
+    },
+    "low_star_review_categories": {
+      "counterfeit_wording_only": 41,
+      "mismatch_wording_only": 1,
+      "both_counterfeit_and_mismatch_wording": 0,
+      "general_dissatisfaction_or_deception_wording_only": 35,
+      "no_selected_keyword": 261
+    },
+    "low_star_with_any_selected_wording": 77,
+    "low_star_with_authenticity_or_mismatch_wording": 42,
+    "all_star_authenticity_or_mismatch_wording": 55,
+    "above_two_star_authenticity_or_mismatch_wording": 13,
+    "interpretation": "Counts describe regex wording, not confirmed complaints, counterfeits or model accuracy."
+  },
+  "main_amazon_india_dataset": "Cannot apply the star gate to individual reviews: rating is a listing aggregate and review text is combined.",
+  "synthetic_data": "No synthetic observations or outcome labels generated.",
+  "patterns": {
+    "waste_of_money": "\\bwaste\\s+of\\s+(?:my\\s+)?money\\b",
+    "not_good": "\\b(?:not\\s+(?:at\\s+all\\s+)?good|no\\s+good)\\b",
+    "poor_or_bad_quality": "\\b(?:poor|bad|low)\\s+quality\\b",
+    "fake_word": "\\bfake\\b",
+    "counterfeit_wording": "\\b(?:counterfeits?|fake|duplicates?|knock[ -]?offs?|not\\s+(?:an?\\s+)?(?:original|genuine)|non[ -]?genuine)\\b",
+    "wrong_product_wording": "\\bwrong\\s+(?:item|product|model|size|colou?r|variant|brand)\\b|\\b(?:received|delivered|sent)\\s+(?:(?:a|the|completely|totally)\\s+){0,3}different\\s+(?:item|product|model|size|colou?r|variant|brand)\\b|\\bnot\\s+what\\s+i\\s+(?:had\\s+)?ordered\\b",
+    "not_as_advertised_wording": "\\bnot\\s+as\\s+(?:advertised|described|shown|pictured)\\b|\\b(?:does\\s+not|doesn't|did\\s+not|didn't)\\s+match\\s+(?:the\\s+)?(?:description|picture|image|advertisement)\\b|\\b(?:misleading|false)\\s+(?:description|advertis(?:ement|ing)|claims?)\\b",
+    "deception_wording": "\\b(?:scam(?:s|med|mer|mers|ming)?|fraud(?:ulent)?|cheat(?:ed|ing|s)?)\\b"
+  }
+}

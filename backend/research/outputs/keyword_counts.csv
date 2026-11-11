@@ -1,0 +1,13 @@
+dataset,indicator,positive_records,total_records,sample_fraction
+main_unique_products,scam_word_flag,5,1351,0.003700962250185048
+main_unique_products,general_deception_flag,13,1351,0.009622501850481125
+main_unique_products,counterfeit_term_flag,27,1351,0.01998519615099926
+main_unique_products,wrong_product_phrase_flag,7,1351,0.0051813471502590676
+main_unique_products,not_as_advertised_phrase_flag,0,1351,0.0
+main_unique_products,any_complaint_rule_flag,46,1351,0.034048852701702444
+india_unique_nonempty_reviews,scam_word_flag,2,1388,0.001440922190201729
+india_unique_nonempty_reviews,general_deception_flag,15,1388,0.010806916426512969
+india_unique_nonempty_reviews,counterfeit_term_flag,54,1388,0.03890489913544669
+india_unique_nonempty_reviews,wrong_product_phrase_flag,0,1388,0.0
+india_unique_nonempty_reviews,not_as_advertised_phrase_flag,1,1388,0.0007204610951008645
+india_unique_nonempty_reviews,any_complaint_rule_flag,69,1388,0.04971181556195965

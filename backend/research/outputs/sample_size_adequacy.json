@@ -1,0 +1,352 @@
+{
+  "recorded_on": "2026-10-31",
+  "unit_of_adequacy": "Review, listing and time-window coverage are assessed separately",
+  "time_basis": "Each listing's last observed dataset review date; not the wall-clock recording date",
+  "caution": "Coverage gates are exploratory choices, not formal power calculations; unknown sampling selection and missing confirmed fraud labels remain.",
+  "general_amazon": {
+    "nonempty_review_records": 39986,
+    "distinct_asins": 33779,
+    "distinct_known_reviewer_ids": 6734,
+    "one_review_asins": 30305,
+    "one_review_asin_fraction": 0.897155037153261,
+    "review_count_distribution": {
+      "1": 30305,
+      "2": 2428,
+      "3": 558,
+      "4": 216,
+      "5": 98,
+      "6": 52,
+      "7": 27,
+      "8": 24,
+      "9": 11,
+      "10": 15,
+      "11": 8,
+      "12": 9,
+      "13": 3,
+      "14": 1,
+      "15": 4,
+      "16": 2,
+      "17": 4,
+      "19": 1,
+      "20": 2,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "31": 2,
+      "33": 1,
+      "38": 1,
+      "41": 1,
+      "42": 1,
+      "44": 1,
+      "61": 1
+    },
+    "asins_by_minimum_total_reviews": {
+      "2": 3474,
+      "5": 272,
+      "10": 60,
+      "20": 13,
+      "30": 8,
+      "50": 1
+    },
+    "asins_with_at_least_20_non_neutral_reviews": 11,
+    "specific_wording_candidate_asins": 73,
+    "candidate_asins_with_at_least_20_non_neutral_reviews": 1,
+    "first_review_date": "2001-08-11",
+    "last_review_date": "2023-03-18",
+    "endpoint_window_coverage_by_days": {
+      "30": {
+        "at_least_5_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "90": {
+        "at_least_5_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "180": {
+        "at_least_5_each": {
+          "listing_count": 2,
+          "candidate_listing_count": 0,
+          "listings": [
+            {
+              "asin": "B0791TX5P5",
+              "cutoff": "2020-09-24",
+              "recent_n": 6,
+              "previous_n": 9,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B079QHML21",
+              "cutoff": "2022-01-09",
+              "recent_n": 5,
+              "previous_n": 8,
+              "is_specific_wording_candidate": false
+            }
+          ]
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "365": {
+        "at_least_5_each": {
+          "listing_count": 11,
+          "candidate_listing_count": 1,
+          "listings": [
+            {
+              "asin": "B01MZEEFNX",
+              "cutoff": "2021-05-02",
+              "recent_n": 12,
+              "previous_n": 13,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B07YNLBS7R",
+              "cutoff": "2023-01-13",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B0791TX5P5",
+              "cutoff": "2020-09-24",
+              "recent_n": 15,
+              "previous_n": 8,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B07FZ8S74R",
+              "cutoff": "2023-02-06",
+              "recent_n": 8,
+              "previous_n": 8,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B07XJ8C8F5",
+              "cutoff": "2023-01-16",
+              "recent_n": 5,
+              "previous_n": 7,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B015TJD0Y4",
+              "cutoff": "2019-07-29",
+              "recent_n": 5,
+              "previous_n": 9,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B079QHML21",
+              "cutoff": "2022-01-09",
+              "recent_n": 13,
+              "previous_n": 13,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B07HZLHPKP",
+              "cutoff": "2021-11-11",
+              "recent_n": 7,
+              "previous_n": 8,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B08C1W5N87",
+              "cutoff": "2023-03-04",
+              "recent_n": 7,
+              "previous_n": 6,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B01N32NCPM",
+              "cutoff": "2019-04-24",
+              "recent_n": 10,
+              "previous_n": 6,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B01415QHYW",
+              "cutoff": "2021-05-29",
+              "recent_n": 6,
+              "previous_n": 6,
+              "is_specific_wording_candidate": true
+            }
+          ]
+        },
+        "at_least_10_each": {
+          "listing_count": 2,
+          "candidate_listing_count": 0,
+          "listings": [
+            {
+              "asin": "B01MZEEFNX",
+              "cutoff": "2021-05-02",
+              "recent_n": 12,
+              "previous_n": 13,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B079QHML21",
+              "cutoff": "2022-01-09",
+              "recent_n": 13,
+              "previous_n": 13,
+              "is_specific_wording_candidate": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  "indian_products_supplement": {
+    "nonempty_review_records": 1388,
+    "distinct_asins": 145,
+    "distinct_known_reviewer_ids": null,
+    "one_review_asins": 2,
+    "one_review_asin_fraction": 0.013793103448275862,
+    "review_count_distribution": {
+      "1": 2,
+      "2": 1,
+      "3": 1,
+      "5": 3,
+      "6": 2,
+      "8": 2,
+      "9": 2,
+      "10": 132
+    },
+    "asins_by_minimum_total_reviews": {
+      "2": 143,
+      "5": 141,
+      "10": 132,
+      "20": 0,
+      "30": 0,
+      "50": 0
+    },
+    "asins_with_at_least_20_non_neutral_reviews": 0,
+    "specific_wording_candidate_asins": 26,
+    "candidate_asins_with_at_least_20_non_neutral_reviews": 0,
+    "first_review_date": "2015-04-12",
+    "last_review_date": "2020-10-06",
+    "endpoint_window_coverage_by_days": {
+      "30": {
+        "at_least_5_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "90": {
+        "at_least_5_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "180": {
+        "at_least_5_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      },
+      "365": {
+        "at_least_5_each": {
+          "listing_count": 8,
+          "candidate_listing_count": 3,
+          "listings": [
+            {
+              "asin": "B012SPKP9U",
+              "cutoff": "2020-03-22",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": true
+            },
+            {
+              "asin": "B07Y3L2QD3",
+              "cutoff": "2020-09-04",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B018E0GEAM",
+              "cutoff": "2020-09-30",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B00QGEN6C8",
+              "cutoff": "2020-05-19",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B07MVQDD4G",
+              "cutoff": "2020-08-06",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B002ZVK88G",
+              "cutoff": "2020-08-06",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": false
+            },
+            {
+              "asin": "B00N469044",
+              "cutoff": "2020-01-05",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": true
+            },
+            {
+              "asin": "B00MGGLZUU",
+              "cutoff": "2020-01-05",
+              "recent_n": 5,
+              "previous_n": 5,
+              "is_specific_wording_candidate": true
+            }
+          ]
+        },
+        "at_least_10_each": {
+          "listing_count": 0,
+          "candidate_listing_count": 0,
+          "listings": []
+        }
+      }
+    }
+  }
+}

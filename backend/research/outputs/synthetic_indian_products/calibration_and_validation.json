@@ -1,0 +1,336 @@
+{
+  "generator_version": "1.0",
+  "seed": 4025,
+  "primary_calibration": {
+    "primary_source": "nehaprabhavalkar/indian-products-on-amazon",
+    "primary_url": "https://www.kaggle.com/datasets/nehaprabhavalkar/indian-products-on-amazon",
+    "usable_real_reviews": 1388,
+    "real_asins": 145,
+    "date_min": "2015-04-12",
+    "date_max": "2020-10-06",
+    "star_counts": {
+      "1": 273,
+      "2": 65,
+      "3": 99,
+      "4": 230,
+      "5": 721
+    },
+    "screening_text_state_counts": {
+      "generic_dissatisfaction": 45,
+      "positive": 935,
+      "other_negative": 261,
+      "ambiguous_specific_wording": 16,
+      "neutral": 92,
+      "authenticity_concern": 38,
+      "mismatch_concern": 1
+    },
+    "rating_text_joint_counts": {
+      "1|generic_dissatisfaction": 26,
+      "5|positive": 711,
+      "1|other_negative": 207,
+      "4|positive": 224,
+      "1|ambiguous_specific_wording": 3,
+      "3|neutral": 92,
+      "2|other_negative": 54,
+      "3|ambiguous_specific_wording": 6,
+      "5|generic_dissatisfaction": 7,
+      "1|authenticity_concern": 36,
+      "4|generic_dissatisfaction": 2,
+      "3|generic_dissatisfaction": 1,
+      "2|generic_dissatisfaction": 9,
+      "5|ambiguous_specific_wording": 3,
+      "1|mismatch_concern": 1,
+      "2|authenticity_concern": 2,
+      "4|ambiguous_specific_wording": 4
+    },
+    "low_star_reviews": 338,
+    "low_star_any_wording": 77,
+    "low_star_specific_wording": 42,
+    "assistant_context_relevant_low_star_reviews": 39,
+    "distinct_full_collection_families": 125,
+    "copied_full_collections": [
+      [
+        "B002ZVK88G",
+        "B07MVQDD4G"
+      ],
+      [
+        "B003OPTXW4",
+        "B01IEO84OM"
+      ],
+      [
+        "B008YD5500",
+        "B075B7WDJY"
+      ],
+      [
+        "B00AI87X0O",
+        "B01CHVPR16"
+      ],
+      [
+        "B00GLDPBJK",
+        "B07RLLV5BW"
+      ],
+      [
+        "B00H5NMNXC",
+        "B074M3Z6Q5"
+      ],
+      [
+        "B00MGGLZUU",
+        "B00N469044"
+      ],
+      [
+        "B00MIFJMZE",
+        "B01GDWNV68"
+      ],
+      [
+        "B00N8QUNQY",
+        "B00WMNXP82"
+      ],
+      [
+        "B00PVUAJDW",
+        "B07S55SML2"
+      ],
+      [
+        "B00R60PBTC",
+        "B0818ZYVH1"
+      ],
+      [
+        "B011HZ9NQS",
+        "B07VB4H78J"
+      ],
+      [
+        "B01CJUK8PU",
+        "B07QK29V9G"
+      ],
+      [
+        "B01GE1K5BW",
+        "B01N8UHYTB"
+      ],
+      [
+        "B01LNA2MQK",
+        "B07YSHDZY1"
+      ],
+      [
+        "B071WRP912",
+        "B07MKNRBFS"
+      ],
+      [
+        "B077PVVYH6",
+        "B07KN9NLXZ"
+      ],
+      [
+        "B07BGT4J55",
+        "B07FPV716J"
+      ],
+      [
+        "B07Y4ZGYL9",
+        "B082NWX7JC"
+      ],
+      [
+        "B082FL9GB6",
+        "B089W938BR"
+      ]
+    ],
+    "eligible_historical_anchor_profiles": 125,
+    "calibration_weighting": "Pooled 1388 prepared reviews; collection copies remain in this descriptive distribution. Anchor profiles use one representative per identical collection family.",
+    "context_label_limit": "Assistant judgments and a keyword heuristic, not independently adjudicated outcomes. Above-two-star specific wording is unreviewed context, not established irrelevance.",
+    "general_amazon_used_to_generate": false
+  },
+  "scenario_count": 10,
+  "listings_per_scenario": 10,
+  "synthetic_listings": 100,
+  "synthetic_reviews": 10920,
+  "real_reviews_in_combined_export": 1388,
+  "combined_review_records": 12308,
+  "calibration_comparison_reference_scenario_only": [
+    {
+      "stars": 1,
+      "real_count": 273,
+      "real_share": 0.19668587896253603,
+      "empirical_reference_count": 258,
+      "empirical_reference_share": 0.215,
+      "difference_pp": 1.8314121037463966
+    },
+    {
+      "stars": 2,
+      "real_count": 65,
+      "real_share": 0.0468299711815562,
+      "empirical_reference_count": 50,
+      "empirical_reference_share": 0.041666666666666664,
+      "difference_pp": -0.5163304514889534
+    },
+    {
+      "stars": 3,
+      "real_count": 99,
+      "real_share": 0.07132564841498559,
+      "empirical_reference_count": 73,
+      "empirical_reference_share": 0.060833333333333336,
+      "difference_pp": -1.0492315081652257
+    },
+    {
+      "stars": 4,
+      "real_count": 230,
+      "real_share": 0.16570605187319884,
+      "empirical_reference_count": 180,
+      "empirical_reference_share": 0.15,
+      "difference_pp": -1.5706051873198845
+    },
+    {
+      "stars": 5,
+      "real_count": 721,
+      "real_share": 0.5194524495677233,
+      "empirical_reference_count": 639,
+      "empirical_reference_share": 0.5325,
+      "difference_pp": 1.3047550432276678
+    }
+  ],
+  "calibration_comparison_reference_patterns": [
+    {
+      "metric": "screen_low_star",
+      "real_count": 338,
+      "real_denominator": 1388,
+      "real_share": 0.24351585014409222,
+      "reference_count": 308,
+      "reference_denominator": 1200,
+      "reference_share": 0.25666666666666665,
+      "difference_pp": 1.3150816522574438
+    },
+    {
+      "metric": "screen_any_wording",
+      "real_count": 77,
+      "real_denominator": 1388,
+      "real_share": 0.05547550432276657,
+      "reference_count": 71,
+      "reference_denominator": 1200,
+      "reference_share": 0.059166666666666666,
+      "difference_pp": 0.3691162343900094
+    },
+    {
+      "metric": "screen_specific_wording",
+      "real_count": 42,
+      "real_denominator": 1388,
+      "real_share": 0.03025936599423631,
+      "reference_count": 42,
+      "reference_denominator": 1200,
+      "reference_share": 0.035,
+      "difference_pp": 0.4740634005763692
+    }
+  ],
+  "empirical_reference_rating_text_joint_counts": {
+    "5|positive": 629,
+    "1|generic_dissatisfaction": 27,
+    "1|other_negative": 190,
+    "2|other_negative": 47,
+    "4|positive": 174,
+    "3|ambiguous_specific_wording": 7,
+    "3|neutral": 66,
+    "1|authenticity_concern": 35,
+    "4|generic_dissatisfaction": 1,
+    "4|ambiguous_specific_wording": 5,
+    "2|generic_dissatisfaction": 2,
+    "1|mismatch_concern": 2,
+    "5|generic_dissatisfaction": 8,
+    "5|ambiguous_specific_wording": 2,
+    "2|authenticity_concern": 1,
+    "1|ambiguous_specific_wording": 4
+  },
+  "assumptions": {
+    "dense_reviews_per_phase": 60,
+    "sparse_reviews_per_phase": 6,
+    "window_days": 90,
+    "stable_low_neutral_high_per_phase": [
+      6,
+      4,
+      50
+    ],
+    "surge_low_neutral_high_per_phase": [
+      36,
+      4,
+      20
+    ],
+    "surge_specific_texts": 24,
+    "ratio_share_thresholds": [
+      0.2,
+      0.25,
+      0.3
+    ],
+    "ratio_min_non_neutral": 20,
+    "temporal_min_per_window": 10,
+    "temporal_increase_rule": "Direction-only descriptive check: specific-wording share rises and at least two distinct texts occur recently; no significance or validated magnitude threshold.",
+    "date_sampling": "Uniform days within two historical windows; source-derived endpoint. Does not preserve observed seasonality, spacing or review volume.",
+    "scenario_allocation": "Equal counts for software coverage, not estimated real prevalence.",
+    "text_generation": "Finite templates with prefix/suffix variation; not a natural-language training corpus.",
+    "reference_asin": "Historical endpoint/profile provenance only; synthetic experience is never attributed to that real product."
+  },
+  "validation": {
+    "same_seed_reproduces_rows": true,
+    "source_columns_preserved_in_real_rows": true,
+    "all_dates_within_primary_source_range": true,
+    "synthetic_real_ids_disjoint": true,
+    "scenario_invariants_passed": true,
+    "confirmed_fraud_labels_generated": false,
+    "uses_constructed_labels_as_rule_inputs": false,
+    "interpretation": "Passing checks demonstrates generator and prototype mechanics only, not real-world scam detection accuracy."
+  },
+  "scenario_checks": {
+    "empirical_reference": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 8,
+      "wording_increase_flags": 3
+    },
+    "stable_positive": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 0,
+      "wording_increase_flags": 0
+    },
+    "isolated_concern": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 0,
+      "wording_increase_flags": 0
+    },
+    "authenticity_surge": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 10
+    },
+    "mismatch_surge": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 10
+    },
+    "generic_quality_surge": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 0
+    },
+    "historical_recovery": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 0
+    },
+    "sparse_history": {
+      "listings": 10,
+      "reviews": 120,
+      "ratio_25pct_flags": 0,
+      "wording_increase_flags": 0
+    },
+    "copied_complaint_burst": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 0
+    },
+    "context_trap_burst": {
+      "listings": 10,
+      "reviews": 1200,
+      "ratio_25pct_flags": 10,
+      "wording_increase_flags": 10
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "primary_source": "nehaprabhavalkar/indian-products-on-amazon",
+  "seed": 4025,
+  "input_sha256": {
+    "data\\indian-products-on-amazon\\amazon_vfl_reviews.csv": "392cc3ce0361dd6ae3dbf88196d2a6a9147ecf3468ed5800e99cebfc30cd6112",
+    "outputs\\indian_reviews_deduplicated_flagged.csv": "c5df5b65943eda2363e0a61e93203a82ff47be7810b191cb013449b605430254",
+    "outputs\\listing_context_audit.json": "e14cd0dbba229a988242bc975f20190ab379f8c3653084c6b0c73e50abe84ab8",
+    "outputs\\low_star_review_analysis.json": "c8e8de906dce0d944430162dbaf47c35a7a434e1e3cb10c6cd8cda6f99fbb52c",
+    "checkpoints\\checkpoint_01_low_star_and_text.json": "c8e8de906dce0d944430162dbaf47c35a7a434e1e3cb10c6cd8cda6f99fbb52c",
+    "generate_synthetic_indian_products.py": "3e4af3abffd844364966dd7ccac42a3a9ea8451ab98ba725d854800eaf5df4ea"
+  },
+  "output_sha256": {
+    "reviews_synthetic.csv": "ec58c6dcf5805572ea95b843a748a5384827459335266e6fd8297b516ddb1dc5",
+    "reviews_real_and_synthetic.csv": "2945d45d42588e913af1ec6748b3798497001be0b7364ff39bbbd261e38035bf",
+    "listing_window_checks.csv": "a362d91eb629baca7530fcb34ff639d454e7e6deb0445018065d9ce0e9c8d9fa",
+    "calibration_and_validation.json": "eacae325674410942fa9d362bcf3fceb61d313305571b814a8cf3e86630875d3"
+  },
+  "original_sources_and_checkpoint_unchanged": true,
+  "do_not_pool_for_empirical_estimates": "Filter is_synthetic=0 for observed-data results. Synthetic scenario rates are designed, not estimated."
+}

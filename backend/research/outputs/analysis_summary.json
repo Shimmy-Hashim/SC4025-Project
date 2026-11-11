@@ -1,0 +1,659 @@
+{
+  "analysis_date": "2026-10-31",
+  "main": {
+    "raw_rows": 1465,
+    "raw_columns": 16,
+    "unique_product_ids": 1351,
+    "extra_rows_with_repeated_product_id": 114,
+    "unique_review_blobs_in_product_sample": 1197,
+    "candidate_unique_review_blobs": 38,
+    "missing_numeric_rating": 1,
+    "missing_numeric_rating_count": 2,
+    "source_scope": "product listings, with concatenated review blobs; no individual review ratings/dates or seller IDs"
+  },
+  "india": {
+    "raw_rows": 2782,
+    "raw_columns": 5,
+    "exact_duplicates_removed": 1391,
+    "deduplicated_rows": 1391,
+    "nonempty_review_rows": 1388,
+    "missing_review_rows": 3,
+    "unique_product_ids": 145,
+    "earliest_date": "2015-04-12",
+    "latest_date": "2020-10-06",
+    "star_counts_nonempty": {
+      "1": 273,
+      "2": 65,
+      "3": 99,
+      "4": 230,
+      "5": 721
+    }
+  },
+  "identical_text_sensitivity": {
+    "main_unique_texts": 1197,
+    "main_candidate_texts": 38,
+    "india_unique_texts": 1133,
+    "india_candidate_texts": 57,
+    "india_counterfeit_term_texts": 45,
+    "india_low_star_fraction_with_counterfeit_terms": 0.7777777777777778,
+    "india_low_star_fraction_without_counterfeit_terms": 0.23345588235294118,
+    "note": "Sensitivity only; identical generic wording can also occur in independent legitimate reviews."
+  },
+  "exact_product_id_overlap": 0,
+  "label_definition": "Unvalidated wording flags. No rule match is not evidence of authenticity. No measured fraud probability.",
+  "keyword_counts": [
+    {
+      "dataset": "main_unique_products",
+      "indicator": "scam_word_flag",
+      "positive_records": 5,
+      "total_records": 1351,
+      "sample_fraction": 0.003700962250185048
+    },
+    {
+      "dataset": "main_unique_products",
+      "indicator": "general_deception_flag",
+      "positive_records": 13,
+      "total_records": 1351,
+      "sample_fraction": 0.009622501850481125
+    },
+    {
+      "dataset": "main_unique_products",
+      "indicator": "counterfeit_term_flag",
+      "positive_records": 27,
+      "total_records": 1351,
+      "sample_fraction": 0.01998519615099926
+    },
+    {
+      "dataset": "main_unique_products",
+      "indicator": "wrong_product_phrase_flag",
+      "positive_records": 7,
+      "total_records": 1351,
+      "sample_fraction": 0.0051813471502590676
+    },
+    {
+      "dataset": "main_unique_products",
+      "indicator": "not_as_advertised_phrase_flag",
+      "positive_records": 0,
+      "total_records": 1351,
+      "sample_fraction": 0.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "indicator": "any_complaint_rule_flag",
+      "positive_records": 46,
+      "total_records": 1351,
+      "sample_fraction": 0.034048852701702444
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "scam_word_flag",
+      "positive_records": 2,
+      "total_records": 1388,
+      "sample_fraction": 0.001440922190201729
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "general_deception_flag",
+      "positive_records": 15,
+      "total_records": 1388,
+      "sample_fraction": 0.010806916426512969
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "counterfeit_term_flag",
+      "positive_records": 54,
+      "total_records": 1388,
+      "sample_fraction": 0.03890489913544669
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "wrong_product_phrase_flag",
+      "positive_records": 0,
+      "total_records": 1388,
+      "sample_fraction": 0.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "not_as_advertised_phrase_flag",
+      "positive_records": 1,
+      "total_records": 1388,
+      "sample_fraction": 0.0007204610951008645
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "indicator": "any_complaint_rule_flag",
+      "positive_records": 69,
+      "total_records": 1388,
+      "sample_fraction": 0.04971181556195965
+    }
+  ],
+  "low_star_associations": [
+    {
+      "indicator": "scam_word_flag",
+      "flag_value": 0,
+      "reviews": 1386,
+      "one_or_two_star_reviews": 336,
+      "one_or_two_star_fraction": 0.24242424242424243
+    },
+    {
+      "indicator": "scam_word_flag",
+      "flag_value": 1,
+      "reviews": 2,
+      "one_or_two_star_reviews": 2,
+      "one_or_two_star_fraction": 1.0
+    },
+    {
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 0,
+      "reviews": 1334,
+      "one_or_two_star_reviews": 297,
+      "one_or_two_star_fraction": 0.22263868065967016
+    },
+    {
+      "indicator": "counterfeit_term_flag",
+      "flag_value": 1,
+      "reviews": 54,
+      "one_or_two_star_reviews": 41,
+      "one_or_two_star_fraction": 0.7592592592592593
+    },
+    {
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "reviews": 1319,
+      "one_or_two_star_reviews": 285,
+      "one_or_two_star_fraction": 0.21607278241091737
+    },
+    {
+      "indicator": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "reviews": 69,
+      "one_or_two_star_reviews": 53,
+      "one_or_two_star_fraction": 0.7681159420289855
+    }
+  ],
+  "descriptive_associations": [
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "rating_numeric",
+      "group_records": 1346,
+      "valid_values": 1345,
+      "mean": 4.091078066914498,
+      "median": 4.1
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "discounted_price_numeric",
+      "group_records": 1346,
+      "valid_values": 1346,
+      "mean": 3231.272043090639,
+      "median": 889.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "discount_percentage_numeric",
+      "group_records": 1346,
+      "valid_values": 1346,
+      "mean": 46.73997028231798,
+      "median": 49.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "rating_count_numeric",
+      "group_records": 1346,
+      "valid_values": 1344,
+      "mean": 17692.640625,
+      "median": 4756.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1346,
+      "valid_values": 1346,
+      "mean": 1387.369985141159,
+      "median": 812.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "rating_numeric",
+      "group_records": 5,
+      "valid_values": 5,
+      "mean": 4.3,
+      "median": 4.3
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "discounted_price_numeric",
+      "group_records": 5,
+      "valid_values": 5,
+      "mean": 23099.0,
+      "median": 23999.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "discount_percentage_numeric",
+      "group_records": 5,
+      "valid_values": 5,
+      "mean": 32.0,
+      "median": 31.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "rating_count_numeric",
+      "group_records": 5,
+      "valid_values": 5,
+      "mean": 4702.8,
+      "median": 4703.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 5,
+      "valid_values": 5,
+      "mean": 4919.0,
+      "median": 4919.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "review_rating_numeric",
+      "group_records": 1386,
+      "valid_values": 1386,
+      "mean": 3.7683982683982684,
+      "median": 5.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "scam_word_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1386,
+      "valid_values": 1386,
+      "mean": 223.84415584415584,
+      "median": 158.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "review_rating_numeric",
+      "group_records": 2,
+      "valid_values": 2,
+      "mean": 1.0,
+      "median": 1.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "scam_word_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 2,
+      "valid_values": 2,
+      "mean": 540.0,
+      "median": 540.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "rating_numeric",
+      "group_records": 1324,
+      "valid_values": 1323,
+      "mean": 4.092819349962206,
+      "median": 4.1
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "discounted_price_numeric",
+      "group_records": 1324,
+      "valid_values": 1324,
+      "mean": 3347.0703700906342,
+      "median": 899.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "discount_percentage_numeric",
+      "group_records": 1324,
+      "valid_values": 1324,
+      "mean": 46.705438066465256,
+      "median": 49.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "rating_count_numeric",
+      "group_records": 1324,
+      "valid_values": 1322,
+      "mean": 17288.47806354009,
+      "median": 4719.5
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1324,
+      "valid_values": 1324,
+      "mean": 1367.1729607250754,
+      "median": 801.5
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "rating_numeric",
+      "group_records": 27,
+      "valid_values": 27,
+      "mean": 4.044444444444444,
+      "median": 4.1
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "discounted_price_numeric",
+      "group_records": 27,
+      "valid_values": 27,
+      "mean": 1232.0740740740741,
+      "median": 478.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "discount_percentage_numeric",
+      "group_records": 27,
+      "valid_values": 27,
+      "mean": 45.7037037037037,
+      "median": 50.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "rating_count_numeric",
+      "group_records": 27,
+      "valid_values": 27,
+      "mean": 35076.11111111111,
+      "median": 8614.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 27,
+      "valid_values": 27,
+      "mean": 3031.777777777778,
+      "median": 1145.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "review_rating_numeric",
+      "group_records": 1334,
+      "valid_values": 1334,
+      "mean": 3.847826086956522,
+      "median": 5.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1334,
+      "valid_values": 1334,
+      "mean": 222.05247376311843,
+      "median": 154.5
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "review_rating_numeric",
+      "group_records": 54,
+      "valid_values": 54,
+      "mean": 1.7037037037037037,
+      "median": 1.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "counterfeit_term_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 54,
+      "valid_values": 54,
+      "mean": 279.81481481481484,
+      "median": 230.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "rating_numeric",
+      "group_records": 1305,
+      "valid_values": 1304,
+      "mean": 4.092868098159509,
+      "median": 4.1
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "discounted_price_numeric",
+      "group_records": 1305,
+      "valid_values": 1305,
+      "mean": 3281.472927203065,
+      "median": 899.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "discount_percentage_numeric",
+      "group_records": 1305,
+      "valid_values": 1305,
+      "mean": 46.8,
+      "median": 49.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "rating_count_numeric",
+      "group_records": 1305,
+      "valid_values": 1303,
+      "mean": 17351.867996930163,
+      "median": 4736.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1305,
+      "valid_values": 1305,
+      "mean": 1352.5685823754789,
+      "median": 800.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "rating_numeric",
+      "group_records": 46,
+      "valid_values": 46,
+      "mean": 4.0630434782608695,
+      "median": 4.1
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "discounted_price_numeric",
+      "group_records": 46,
+      "valid_values": 46,
+      "mean": 3966.6304347826085,
+      "median": 599.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "discount_percentage_numeric",
+      "group_records": 46,
+      "valid_values": 46,
+      "mean": 43.43478260869565,
+      "median": 48.0
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "rating_count_numeric",
+      "group_records": 46,
+      "valid_values": 46,
+      "mean": 25933.456521739132,
+      "median": 7330.5
+    },
+    {
+      "dataset": "main_unique_products",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 46,
+      "valid_values": 46,
+      "mean": 2758.5434782608695,
+      "median": 1266.5
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "review_rating_numeric",
+      "group_records": 1319,
+      "valid_values": 1319,
+      "mean": 3.8733889310083396,
+      "median": 5.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 0,
+      "variable": "review_text_char_count",
+      "group_records": 1319,
+      "valid_values": 1319,
+      "mean": 220.93328278999243,
+      "median": 153.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "review_rating_numeric",
+      "group_records": 69,
+      "valid_values": 69,
+      "mean": 1.681159420289855,
+      "median": 1.0
+    },
+    {
+      "dataset": "india_unique_nonempty_reviews",
+      "flag": "any_complaint_rule_flag",
+      "flag_value": 1,
+      "variable": "review_text_char_count",
+      "group_records": 69,
+      "valid_values": 69,
+      "mean": 288.6521739130435,
+      "median": 232.0
+    }
+  ],
+  "category_associations": [
+    {
+      "category": "Car&Motorbike",
+      "products": 1,
+      "candidate_products": 0,
+      "candidate_fraction": 0.0
+    },
+    {
+      "category": "Computers&Accessories",
+      "products": 375,
+      "candidate_products": 14,
+      "candidate_fraction": 0.037333333333333336
+    },
+    {
+      "category": "Electronics",
+      "products": 490,
+      "candidate_products": 25,
+      "candidate_fraction": 0.05102040816326531
+    },
+    {
+      "category": "Health&PersonalCare",
+      "products": 1,
+      "candidate_products": 0,
+      "candidate_fraction": 0.0
+    },
+    {
+      "category": "Home&Kitchen",
+      "products": 448,
+      "candidate_products": 6,
+      "candidate_fraction": 0.013392857142857142
+    },
+    {
+      "category": "HomeImprovement",
+      "products": 2,
+      "candidate_products": 0,
+      "candidate_fraction": 0.0
+    },
+    {
+      "category": "MusicalInstruments",
+      "products": 2,
+      "candidate_products": 1,
+      "candidate_fraction": 0.5
+    },
+    {
+      "category": "OfficeProducts",
+      "products": 31,
+      "candidate_products": 0,
+      "candidate_fraction": 0.0
+    },
+    {
+      "category": "Toys&Games",
+      "products": 1,
+      "candidate_products": 0,
+      "candidate_fraction": 0.0
+    }
+  ],
+  "rule_patterns": {
+    "scam_word_flag": "\\bscam(?:s|med|mer|mers|ming)?\\b",
+    "general_deception_flag": "\\b(?:scam(?:s|med|mer|mers|ming)?|fraud(?:ulent)?|cheat(?:ed|ing|s)?)\\b",
+    "counterfeit_term_flag": "\\b(?:counterfeits?|fake|duplicates?|knock[ -]?offs?|not\\s+(?:an?\\s+)?(?:original|genuine)|non[ -]?genuine)\\b",
+    "wrong_product_phrase_flag": "\\bwrong\\s+(?:item|product|model|size|colou?r|variant|brand)\\b|\\b(?:received|delivered|sent)\\s+(?:(?:a|the|completely|totally)\\s+){0,3}different\\s+(?:item|product|model|size|colou?r|variant|brand)\\b|\\bnot\\s+what\\s+i\\s+(?:had\\s+)?ordered\\b",
+    "not_as_advertised_phrase_flag": "\\bnot\\s+as\\s+(?:advertised|described|shown|pictured)\\b|\\b(?:does\\s+not|doesn't|did\\s+not|didn't)\\s+match\\s+(?:the\\s+)?(?:description|picture|image|advertisement)\\b|\\b(?:misleading|false)\\s+(?:description|advertis(?:ement|ing)|claims?)\\b"
+  }
+}
