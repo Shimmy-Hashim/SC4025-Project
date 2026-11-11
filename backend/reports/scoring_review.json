@@ -1,0 +1,540 @@
+{
+  "threshold_comparison": {
+    "listings": 249,
+    "groups": {
+      "empirical_reference": 10,
+      "stable_positive": 10,
+      "isolated_concern": 10,
+      "authenticity_surge": 10,
+      "mismatch_surge": 10,
+      "generic_quality_surge": 10,
+      "historical_recovery": 10,
+      "sparse_history": 10,
+      "copied_complaint_burst": 10,
+      "context_trap_burst": 10,
+      "demo seller": 4,
+      "real product": 145
+    },
+    "status_counts_by_threshold": {
+      "20%": {
+        "warn": 62,
+        "pass": 31,
+        "na": 156
+      },
+      "25%": {
+        "warn": 61,
+        "pass": 32,
+        "na": 156
+      },
+      "30%": {
+        "warn": 61,
+        "pass": 32,
+        "na": 156
+      }
+    },
+    "listings_whose_status_changes": [
+      {
+        "listing": "synthetic:SYNTH_IPA_0010",
+        "group": "empirical_reference",
+        "share": 0.2087,
+        "distinct_allegations": 1,
+        "statuses": {
+          "20%": "warn",
+          "25%": "pass",
+          "30%": "pass"
+        }
+      }
+    ],
+    "real_products_meeting_polar_gate": 0,
+    "warns_where_repeated_rule_already_fires": 51
+  },
+  "sensitivity": {
+    "profiles": 243,
+    "scored_profiles": 112,
+    "baseline_band_counts": {
+      "High": 11,
+      "Medium": 48,
+      "Low": 53
+    },
+    "variants": {
+      "current (weights 20/25/20/20/15, 75/50, cap)": {
+        "profiles_changed": 0,
+        "share_changed": 0.0,
+        "transitions": {},
+        "examples": []
+      },
+      "equal weights, 75/50, cap": {
+        "profiles_changed": 17,
+        "share_changed": 0.152,
+        "transitions": {
+          "Medium -> High": 5,
+          "Low -> Medium": 12
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "pass",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Low",
+            "variant": "Medium"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "na",
+              "complaints": "pass"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "warn",
+              "reviews": "pass",
+              "complaints": "na"
+            },
+            "baseline": "Low",
+            "variant": "Medium"
+          }
+        ]
+      },
+      "current weights, no cap": {
+        "profiles_changed": 13,
+        "share_changed": 0.116,
+        "transitions": {
+          "Medium -> High": 13
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "pass",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "pass"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "na",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          }
+        ]
+      },
+      "equal weights, no cap": {
+        "profiles_changed": 32,
+        "share_changed": 0.286,
+        "transitions": {
+          "Medium -> High": 20,
+          "Low -> Medium": 12
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "pass",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "pass"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "pass",
+              "reviews": "na",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          }
+        ]
+      },
+      "current weights, cut-offs 80/55": {
+        "profiles_changed": 16,
+        "share_changed": 0.143,
+        "transitions": {
+          "Medium -> Low": 12,
+          "High -> Medium": 4
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "warn",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "pass",
+              "complaints": "pass"
+            },
+            "baseline": "High",
+            "variant": "Medium"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "na",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "na",
+              "reviews": "pass",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          }
+        ]
+      },
+      "current weights, cut-offs 70/45": {
+        "profiles_changed": 11,
+        "share_changed": 0.098,
+        "transitions": {
+          "Low -> Medium": 9,
+          "Medium -> High": 2
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "warn",
+              "reviews": "warn",
+              "complaints": "warn"
+            },
+            "baseline": "Low",
+            "variant": "Medium"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "pass",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "High"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Low",
+            "variant": "Medium"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "warn",
+              "reviews": "pass",
+              "complaints": "na"
+            },
+            "baseline": "Low",
+            "variant": "Medium"
+          }
+        ]
+      },
+      "current weights, na scored as 0": {
+        "profiles_changed": 21,
+        "share_changed": 0.188,
+        "transitions": {
+          "Medium -> Low": 18,
+          "High -> Medium": 3
+        },
+        "examples": [
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "warn",
+              "reviews": "warn",
+              "complaints": "na"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "warn",
+              "reviews": "na",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "pass",
+              "price": "na",
+              "reviews": "warn",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          },
+          {
+            "profile": {
+              "history": "pass",
+              "brand": "warn",
+              "price": "pass",
+              "reviews": "na",
+              "complaints": "warn"
+            },
+            "baseline": "Medium",
+            "variant": "Low"
+          }
+        ]
+      }
+    },
+    "demo_sellers": {
+      "A": {
+        "current (weights 20/25/20/20/15, 75/50, cap)": "High",
+        "equal weights, 75/50, cap": "High",
+        "current weights, no cap": "High",
+        "equal weights, no cap": "High",
+        "current weights, cut-offs 80/55": "High",
+        "current weights, cut-offs 70/45": "High",
+        "current weights, na scored as 0": "High"
+      },
+      "B": {
+        "current (weights 20/25/20/20/15, 75/50, cap)": "Medium",
+        "equal weights, 75/50, cap": "Medium",
+        "current weights, no cap": "Medium",
+        "equal weights, no cap": "Medium",
+        "current weights, cut-offs 80/55": "Medium",
+        "current weights, cut-offs 70/45": "Medium",
+        "current weights, na scored as 0": "Medium"
+      },
+      "C": {
+        "current (weights 20/25/20/20/15, 75/50, cap)": "Low",
+        "equal weights, 75/50, cap": "Low",
+        "current weights, no cap": "Low",
+        "equal weights, no cap": "Low",
+        "current weights, cut-offs 80/55": "Low",
+        "current weights, cut-offs 70/45": "Low",
+        "current weights, na scored as 0": "Low"
+      }
+    },
+    "single_warning_profiles": {
+      "history": {
+        "current": [
+          "High",
+          80
+        ],
+        "equal": [
+          "High",
+          80
+        ]
+      },
+      "brand": {
+        "current": [
+          "High",
+          75
+        ],
+        "equal": [
+          "High",
+          80
+        ]
+      },
+      "price": {
+        "current": [
+          "Medium",
+          80
+        ],
+        "equal": [
+          "Medium",
+          80
+        ]
+      },
+      "reviews": {
+        "current": [
+          "Medium",
+          80
+        ],
+        "equal": [
+          "Medium",
+          80
+        ]
+      },
+      "complaints": {
+        "current": [
+          "Medium",
+          85
+        ],
+        "equal": [
+          "Medium",
+          80
+        ]
+      }
+    }
+  },
+  "profitability": {
+    "price_assumption_inr": 25000,
+    "scenarios": {
+      "pessimistic": {
+        "assumptions": {
+          "flag_exposure": 0.1,
+          "purchase_rate": 0.08,
+          "switch": 0.1,
+          "abandon": 0.15,
+          "incident_flagged": 0.005,
+          "incident_higher": 0.002,
+          "incident_cost": 0.05,
+          "contribution": 0.04,
+          "feature_cost_per_session": 0.05
+        },
+        "delta_contribution_per_1000_sessions_inr": -1240.0,
+        "break_even_abandon_rate": -0.0059
+      },
+      "base": {
+        "assumptions": {
+          "flag_exposure": 0.1,
+          "purchase_rate": 0.08,
+          "switch": 0.25,
+          "abandon": 0.08,
+          "incident_flagged": 0.02,
+          "incident_higher": 0.003,
+          "incident_cost": 0.1,
+          "contribution": 0.035,
+          "feature_cost_per_session": 0.02
+        },
+        "delta_contribution_per_1000_sessions_inr": -463.0,
+        "break_even_abandon_rate": 0.0098
+      },
+      "optimistic": {
+        "assumptions": {
+          "flag_exposure": 0.1,
+          "purchase_rate": 0.08,
+          "switch": 0.4,
+          "abandon": 0.03,
+          "incident_flagged": 0.05,
+          "incident_higher": 0.003,
+          "incident_cost": 0.15,
+          "contribution": 0.03,
+          "feature_cost_per_session": 0.01
+        },
+        "delta_contribution_per_1000_sessions_inr": 419.0,
+        "break_even_abandon_rate": 0.1231
+      }
+    },
+    "base_grid_per_1000_sessions_inr": {
+      "incident_flagged=0.005, abandon=0.02": -148.0,
+      "incident_flagged=0.005, abandon=0.05": -355.0,
+      "incident_flagged=0.005, abandon=0.08": -562.0,
+      "incident_flagged=0.005, abandon=0.15": -1045.0,
+      "incident_flagged=0.01, abandon=0.02": -121.0,
+      "incident_flagged=0.01, abandon=0.05": -325.0,
+      "incident_flagged=0.01, abandon=0.08": -529.0,
+      "incident_flagged=0.01, abandon=0.15": -1005.0,
+      "incident_flagged=0.02, abandon=0.02": -67.0,
+      "incident_flagged=0.02, abandon=0.05": -265.0,
+      "incident_flagged=0.02, abandon=0.08": -463.0,
+      "incident_flagged=0.02, abandon=0.15": -925.0,
+      "incident_flagged=0.05, abandon=0.02": 95.0,
+      "incident_flagged=0.05, abandon=0.05": -85.0,
+      "incident_flagged=0.05, abandon=0.08": -265.0,
+      "incident_flagged=0.05, abandon=0.15": -685.0
+    }
+  }
+}

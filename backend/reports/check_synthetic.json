@@ -1,0 +1,179 @@
+{
+  "scope": "Rule behaviour on designed scenarios. Not real-world detection accuracy.",
+  "flag_counts_ours_vs_research": {
+    "empirical_reference": {
+      "ours": {
+        "ratio_25pct_flags": 8,
+        "wording_increase_flags": 3
+      },
+      "research": {
+        "ratio_25pct_flags": 8,
+        "wording_increase_flags": 3
+      }
+    },
+    "stable_positive": {
+      "ours": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      }
+    },
+    "isolated_concern": {
+      "ours": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      }
+    },
+    "authenticity_surge": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      }
+    },
+    "mismatch_surge": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      }
+    },
+    "generic_quality_surge": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      }
+    },
+    "historical_recovery": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      }
+    },
+    "sparse_history": {
+      "ours": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 0,
+        "wording_increase_flags": 0
+      }
+    },
+    "copied_complaint_burst": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 0
+      }
+    },
+    "context_trap_burst": {
+      "ours": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      },
+      "research": {
+        "ratio_25pct_flags": 10,
+        "wording_increase_flags": 10
+      }
+    }
+  },
+  "reviews_factor_outcomes": {
+    "empirical_reference": {
+      "warn/repeated": 8,
+      "warn/concentration": 1,
+      "pass/None": 1
+    },
+    "stable_positive": {
+      "pass/None": 10
+    },
+    "isolated_concern": {
+      "pass/None": 10
+    },
+    "authenticity_surge": {
+      "warn/repeated": 10
+    },
+    "mismatch_surge": {
+      "warn/repeated": 10
+    },
+    "generic_quality_surge": {
+      "pass/None": 10
+    },
+    "historical_recovery": {
+      "warn/repeated": 10
+    },
+    "sparse_history": {
+      "na/None": 10
+    },
+    "copied_complaint_burst": {
+      "warn/concentration": 10
+    },
+    "context_trap_burst": {
+      "pass/None": 10
+    }
+  },
+  "expectations": {
+    "stable_positive": [
+      "pass",
+      null
+    ],
+    "isolated_concern": [
+      "pass",
+      null
+    ],
+    "authenticity_surge": [
+      "warn",
+      "repeated"
+    ],
+    "mismatch_surge": [
+      "warn",
+      "repeated"
+    ],
+    "generic_quality_surge": [
+      "pass",
+      null
+    ],
+    "historical_recovery": [
+      "warn",
+      "repeated"
+    ],
+    "sparse_history": [
+      "na",
+      null
+    ],
+    "copied_complaint_burst": [
+      "warn",
+      "concentration"
+    ],
+    "context_trap_burst": [
+      "pass",
+      null
+    ]
+  },
+  "note": "Flag counts use stage 1 (Checkpoint 1) to reproduce the research. Outcomes use stage 2. context_trap_burst passes only because its templates use phrases the stage 2 exclusions were written for; this is not independent evidence.",
+  "failures": []
+}

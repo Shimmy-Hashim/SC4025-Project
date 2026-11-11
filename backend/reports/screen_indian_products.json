@@ -1,0 +1,25 @@
+{
+  "source": "Indian Products on Amazon (nehaprabhavalkar), prepared as in the research",
+  "scope": "Product-level regex stage only. Not seller-level, not validated complaint labels.",
+  "nonempty_reviews": 1388,
+  "asins": 145,
+  "one_or_two_star_reviews": 338,
+  "low_star_with_any_selected_wording": 77,
+  "low_star_with_authenticity_or_mismatch_wording": 42,
+  "stage2_interpreted_allegations": 39,
+  "low_star_rule_counts": {
+    "counterfeit_wording": 41,
+    "deception_wording": 12,
+    "fake_word": 20,
+    "not_as_advertised_wording": 1,
+    "not_good": 14,
+    "poor_or_bad_quality": 5,
+    "waste_of_money": 11
+  },
+  "listing_share_sensitivity": {
+    "listings_meeting_polar_gate": 0,
+    "at_or_above_20pct": 0,
+    "at_or_above_25pct": 0,
+    "at_or_above_30pct": 0
+  }
+}
